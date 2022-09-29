@@ -1,0 +1,63 @@
+/* variables colores */
+$color-principal: #e91802;
+$fondo-secciones: #f6f6f6;
+$fondo-gris: #363636;
+$fondo-gris-secundario: #2f2f2f;
+$fondo-footer: #4c4c4c;
+
+/* fuentes */
+@font-face {
+    font-family: ReithSans;
+    src: url(../fonts/ReithSans.ttf);
+  }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    background-color: $fondo-gris-secundario;
+    .navbar{
+        .navbar-brand{
+            text-align: center;
+            span{
+                padding: 0.4rem;
+                background-color: #fff;
+                color: #000;
+                font-family: ReithSans;
+                font-weight: bold;
+                font-size: 28px;
+            }
+            span:first-child{
+                margin-right: 4px;
+            }
+            p{
+                font-size: 14px;
+                font-family: ReithSans;
+                font-weight: bold;
+                margin-top: 5px;
+                color: #fff;
+            }
+        }
+        .nav-link{
+            color: #fff;
+            padding-bottom: .8rem;
+            &:hover{
+                border-bottom: 1px solid $color-principal;
+            }
+        }
+        .btn-contacto{
+            margin-left: 1.5rem;
+            background-color: #fff;
+            color: $fondo-gris;
+            font-weight: bold;
+            padding: .5rem;
+            border-radius: 5px;
+        }
+        .active{
+            color: #fff !important;
+        }
+    }
+}
