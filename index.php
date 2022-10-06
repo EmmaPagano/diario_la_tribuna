@@ -16,43 +16,9 @@
 </head>
 <body>
 
-<header>
-<nav class="navbar navbar-expand-md">
-  <div class="container">
-    <a class="navbar-brand" href="#">
-        
-        <span>L</span><span>T</span>
-        
-        <p>La Tribuna</p>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Política</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Economía</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Policiales</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Deportes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link btn-contacto" href="#">Contacto</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-</header>
+<?php
+require_once("include/header.php")
+?>
 
 <div class="contenedor-apis">
   <div class="container">
@@ -97,6 +63,46 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eum unde sequi blanditiis sapiente rem, eveniet eos reprehenderit in quia.</p>
           </div>
         </div>
+        <div class="anuncio-horizontal my-4">
+          <img class="img-fluid" src="img/publiHorizontal.gif" alt="">
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <img class="img-fluid" src="img/publi1.jpg" alt="">
+            <h3>Lorem ipsum dolor sit, amet consectetur adipisi</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eum unde sequi blanditiis sapiente rem, eveniet eos reprehenderit in quia.</p>
+          </div>
+          <div class="col-md-4">
+            <img class="img-fluid" src="img/publi1.jpg" alt="">
+            <h3>Lorem ipsum dolor sit, amet consectetur adipisi</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eum unde sequi blanditiis sapiente rem, eveniet eos reprehenderit in quia.</p>
+          </div>
+          <div class="col-md-4">
+            <img class="img-fluid" src="img/publi1.jpg" alt="">
+            <h3>Lorem ipsum dolor sit, amet consectetur adipisi</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eum unde sequi blanditiis sapiente rem, eveniet eos reprehenderit in quia.</p>
+          </div>
+        </div>
+        <div class="anuncio-horizontal my-4">
+          <img class="img-fluid" src="img/publiHorizontal.gif" alt="">
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <img class="img-fluid" src="img/publi1.jpg" alt="">
+            <h3>Lorem ipsum dolor sit, amet consectetur adipisi</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eum unde sequi blanditiis sapiente rem, eveniet eos reprehenderit in quia.</p>
+          </div>
+          <div class="col-md-4">
+            <img class="img-fluid" src="img/publi1.jpg" alt="">
+            <h3>Lorem ipsum dolor sit, amet consectetur adipisi</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eum unde sequi blanditiis sapiente rem, eveniet eos reprehenderit in quia.</p>
+          </div>
+          <div class="col-md-4">
+            <img class="img-fluid" src="img/publi1.jpg" alt="">
+            <h3>Lorem ipsum dolor sit, amet consectetur adipisi</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eum unde sequi blanditiis sapiente rem, eveniet eos reprehenderit in quia.</p>
+          </div>
+        </div>
       </div>
 
       <div class="col-md-4 py-3 contenedor-anuncios">
@@ -112,6 +118,10 @@
 
   </div>
 </main>
+
+<?php
+require_once("include/footer.php")
+?>
 
 <!-- Bootstrap JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script> 

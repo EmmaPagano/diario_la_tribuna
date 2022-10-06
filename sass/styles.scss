@@ -105,3 +105,28 @@ header{
         }
     }
 }
+
+/* footer */
+
+footer{
+    padding: 1rem 0;
+    background-color: $fondo-gris-secundario;
+    color: #fff;
+    .redes{
+        a{
+            color: #fff;
+            text-decoration: none;
+            font-size: 28px;
+        }
+    }
+    ul{
+        list-style: none;
+        padding: 0;
+    }
+    .copyright{
+        a{
+            text-decoration: none;
+            color: #0250c9;
+        }
+    }
+}
