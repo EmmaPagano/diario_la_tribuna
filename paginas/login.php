@@ -1,7 +1,7 @@
 <?php 
 session_start();
-
-$title = 'login';
+require_once("../include/config.php");
+$pagina = 'login';
 
 
 if(isset($_SESSION['idUser'])){
@@ -33,7 +33,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             $resultado = $cmd->fetch();
             if($resultado){
                 $_SESSION['idUser'] = $resultado['idUsuario'];
-                header('Location:../adm/panel-adm.php');
+                $_SESSION['rol'] = $resultado['rol'];
+                if($_SESSION['rol']=='admin'){
+                    header('Location:../adm/panel-adm.php');
+                } 
+
             }else{
                 $notificacion = "La contraseña ingresada es incorrecta.";
                 $error = true;

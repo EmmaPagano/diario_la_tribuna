@@ -1,3 +1,16 @@
+<?php
+
+session_start();
+require_once("../include/config.php");
+$pagina = 'panel';
+$menuAdm = true;
+if(!isset($_SESSION['idUser']) || $_SESSION['rol'] != 'admin'){
+    header('Location:../index.php');
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -27,8 +40,8 @@ require_once("../include/header.php")
             <div class="col-md-6 text-center mb-3">
                 <h3 class="mb-3 text-white">Anuncios</h3>
                 <div class="botonera d-flex justify-content-center">
-                    <a class="btn btn-outline-secondary me-3" href="categorias/alta-categoria.php">Nuevo</a>
-                    <a class="btn btn-outline-secondary ms-3" href="categorias/listar-categoria.php">Listar</a>
+                    <a class="btn btn-outline-secondary me-3" href="anuncios/alta.php">Nuevo</a>
+                    <a class="btn btn-outline-secondary ms-3" href="anuncios/listar.php">Listar</a>
                 </div>
             </div>
             <div class="col-md-6 text-center mb-3">

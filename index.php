@@ -1,3 +1,9 @@
+<?php 
+session_start();
+$pagina = 'inicio';
+require_once("include/config.php");
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,7 +23,7 @@
 <body>
 
 <?php
-require_once("include/header.php")
+require_once("include/header.php");
 ?>
 
 <div class="contenedor-apis">
@@ -120,7 +126,7 @@ require_once("include/header.php")
 </main>
 
 <?php
-require_once("include/footer.php")
+require_once("include/footer.php");
 ?>
 
 <!-- Bootstrap JS-->
