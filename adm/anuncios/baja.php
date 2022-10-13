@@ -8,6 +8,32 @@ if(!isset($_SESSION['idUser']) || $_SESSION['rol'] != 'admin'){
     header('Location:../../index.php');
 }
 
+include("../../include/conexion.php");
+if(isset($_GET['id'])){
+    $idAnuncio = $_GET['id'];
+    $cmd = $conexion->prepare('SELECT * FROM anuncios WHERE id_anuncio = :id');
+    $cmd->execute(array(':id'=>$idAnuncio));
+    $anuncio = $cmd->fetch();
+
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $idAnuncio = $_POST['idAnuncio'];
+    if(empty($idAnuncio)){
+        $notificacion = "Error: el ID no puede estar vacío";
+    }  else{
+        $cmd = $conexion->prepare('UPDATE anuncios SET baja_anuncio = 1 WHERE id_anuncio = :id');
+        $resultado = $cmd->execute(array(':id'=>$idAnuncio));
+        if($resultado){
+            header("location: listar.php");
+        } else {
+            $notificacion = "Error: No se ha podido eliminar al anuncio";
+        }
+    }
+
+}
+
+
 
 ?>
 
@@ -22,16 +48,36 @@ if(!isset($_SESSION['idUser']) || $_SESSION['rol'] != 'admin'){
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <!-- Css personalizado -->
-    <link rel="stylesheet" href="../..css/styles.css">
+    <link rel="stylesheet" href="../../css/styles.css">
     
 
-    <title>Diario La Tribuna - Home</title>
+    <title>Diario La Tribuna - Panel</title>
 </head>
 <body>
 
 <?php
 require_once("../../include/header.php")
 ?>
+
+<section class="bajas py-5">
+    <div class="container">
+    <h2 class="titulo-seccion text-center">Dar de baja anuncio</h2>
+    <div class="row">
+            <?php
+            if(isset($notificacion)){
+                echo '<p class="bg-dark text-white text-center py-3">'.$notificacion.'</p>';
+            }
+            ?>
+        <form action="baja.php" method="POST" class="col-md-6 mx-auto text-center p-4 mt-4 bg-light">
+            <input type="hidden" name="idAnuncio" value="<?php echo $idAnuncio ?>">
+            <p>¿Está seguro de que desea eliminar el anuncio seleccionado?</p>
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+
+        </form>
+    </div>
+    </div>
+
+</section>
 
 
 

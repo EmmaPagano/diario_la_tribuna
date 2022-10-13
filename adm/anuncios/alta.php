@@ -9,7 +9,6 @@ if(!isset($_SESSION['idUser']) || $_SESSION['rol'] != 'admin'){
 }
 
 include('../../include/conexion.php');
-/* SELECCIONO EL USUARIO SEGUN EL USERNAME QUE INGRESO EL CLIENTE */
 $cmd = $conexion->prepare('SELECT * FROM anuncios_posiciones');
 $cmd->execute();
 $posiciones = $cmd->fetchAll();
