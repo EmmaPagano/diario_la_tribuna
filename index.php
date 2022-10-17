@@ -2,6 +2,18 @@
 session_start();
 $pagina = 'inicio';
 require_once("include/config.php");
+
+include('include/conexion.php');
+$cmd = $conexion->prepare('SELECT * FROM anuncios WHERE id_posicion_anuncio IN (1,2) AND baja_anuncio = 0 ORDER BY id_posicion_anuncio');
+$cmd->execute();
+$anunciosLaterales = $cmd->fetchAll();
+
+$cmd = $conexion->prepare('SELECT * FROM anuncios WHERE id_posicion_anuncio IN (3,4,5) AND baja_anuncio = 0 ORDER BY id_posicion_anuncio');
+$cmd->execute();
+$anunciosBanners = $cmd->fetchAll();
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -29,8 +41,8 @@ require_once("include/header.php");
 <div class="contenedor-apis">
   <div class="container">
     <div class="api-dolar">
-      <p><span>Dólar oficial: </span>$146,75/$154,75</p>
-      <p><span>Dólar blue: </span>$280,00/$284,00</p>
+      <p><span class="titulo-dolar">Dólar oficial: </span><span id="oficialCompra"></span>/<span id="oficialVenta"></span></p>
+      <p><span class="titulo-dolar">Dólar blue: </span><span id="blueCompra"></span>/<span id="blueVenta"> </span> </p>
     </div>
     <div class="api-clima">
       <p><i class="fa-solid fa-cloud"></i><b> 18.6° </b> Buenos Aires</p>
@@ -69,9 +81,19 @@ require_once("include/header.php");
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eum unde sequi blanditiis sapiente rem, eveniet eos reprehenderit in quia.</p>
           </div>
         </div>
+        <!-- Anuncio - banner-->
         <div class="anuncio-horizontal my-4">
-          <img class="img-fluid" src="img/publiHorizontal.gif" alt="">
+          <?php 
+          if (isset($anunciosBanners[0])){
+            echo '
+            <img class="img-fluid" src="img/'.$anunciosBanners[0]['url_anuncio'].'" alt="">
+            ';
+          }
+          
+          ?>
+
         </div>
+        <!-- Fin Anuncio - banner-->
         <div class="row">
           <div class="col-md-4">
             <img class="img-fluid" src="img/publi1.jpg" alt="">
@@ -89,9 +111,19 @@ require_once("include/header.php");
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eum unde sequi blanditiis sapiente rem, eveniet eos reprehenderit in quia.</p>
           </div>
         </div>
+        <!-- Anuncio - banner-->
         <div class="anuncio-horizontal my-4">
-          <img class="img-fluid" src="img/publiHorizontal.gif" alt="">
+          <?php 
+          if (isset($anunciosBanners[1])){
+            echo '
+            <img class="img-fluid" src="img/'.$anunciosBanners[1]['url_anuncio'].'" alt="">
+            ';
+          }
+          
+          ?>
+
         </div>
+        <!-- Fin Anuncio - banner-->
         <div class="row">
           <div class="col-md-4">
             <img class="img-fluid" src="img/publi1.jpg" alt="">
@@ -110,14 +142,18 @@ require_once("include/header.php");
           </div>
         </div>
       </div>
-
+<!-- Anuncios - laterales-->
       <div class="col-md-4 py-3 contenedor-anuncios">
-        <div class="anuncio">
-          <img src="img/publi1.jpg" alt="imágen publicitaria" class="img-fluid">
+        <?php 
+        foreach ($anunciosLaterales as $fila) {
+          echo '
+          <div class="anuncio">
+          <img src="img/'.$fila['url_anuncio'].'" alt="imágen publicitaria" class="img-fluid">
         </div>
-        <div class="anuncio">
-          <img src="img/publi1.jpg" alt="imágen publicitaria" class="img-fluid">
-        </div>
+          
+          ';
+        }
+        ?>
       </div>
 
     </div>
@@ -131,5 +167,8 @@ require_once("include/footer.php");
 
 <!-- Bootstrap JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script> 
+<!-- JS -->
+<script src="JS/api-dolar.js"> </script>
+
 </body>
 </html>
