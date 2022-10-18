@@ -130,3 +130,24 @@ footer{
         }
     }
 }
+
+/* estilos pagina noticias*/
+
+.pagina-noticia{
+    .seccion-noticia{
+        .listado-redes{
+                list-style: none;
+            li{
+                margin-bottom: .6rem;
+                a{
+                    color: #000;
+                    font-size: 20px;
+                    &:hover{
+                        color:#0250c9;
+                    }
+                    
+                }
+            }
+        }
+    }
+}

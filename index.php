@@ -39,13 +39,13 @@ require_once("include/header.php");
 ?>
 
 <div class="contenedor-apis">
-  <div class="container">
+  <div class="container align-items-center">
     <div class="api-dolar">
-      <p><span class="titulo-dolar">Dólar oficial: </span><span id="oficialCompra"></span>/<span id="oficialVenta"></span></p>
-      <p><span class="titulo-dolar">Dólar blue: </span><span id="blueCompra"></span>/<span id="blueVenta"> </span> </p>
+      <p><span class="titulo-dolar">Dólar oficial: </span><span id="oficialCompra"></span> / <span id="oficialVenta"></span></p>
+      <p><span class="titulo-dolar">Dólar blue: </span><span id="blueCompra"></span> / <span id="blueVenta"> </span> </p>
     </div>
     <div class="api-clima">
-      <p><i class="fa-solid fa-cloud"></i><b> 18.6° </b> Buenos Aires</p>
+      <p><b id="tempActual"> </b> <img style="max-width: 30px ;" id="imgClima"></img> Buenos Aires</p>
     </div>
   </div>
 </div>
@@ -169,6 +169,7 @@ require_once("include/footer.php");
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script> 
 <!-- JS -->
 <script src="JS/api-dolar.js"> </script>
+<script src="JS/api-clima.js"> </script>
 
 </body>
 </html>
