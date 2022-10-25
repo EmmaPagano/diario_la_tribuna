@@ -37,14 +37,21 @@ require_once("../include/header.php")
     <h2 class="text-center mb-5 text-white mt-5 pt-5">Panel administrativo</h2>
     <div class="container">
         <div class="row">
-            <div class="col-md-6 text-center mb-3">
+            <div class="col-md-4 text-center mb-3">
                 <h3 class="mb-3 text-white">Anuncios</h3>
                 <div class="botonera d-flex justify-content-center">
                     <a class="btn btn-outline-secondary me-3" href="anuncios/alta.php">Nuevo</a>
                     <a class="btn btn-outline-secondary ms-3" href="anuncios/listar.php">Listar</a>
                 </div>
             </div>
-            <div class="col-md-6 text-center mb-3">
+            <div class="col-md-4 text-center mb-3">
+                <h3 class="mb-3 text-white">Categorías</h3>
+                <div class="botonera d-flex justify-content-center">
+                    <a class="btn btn-outline-secondary me-3" href="categorias/alta-categoria.php">Nuevo</a>
+                    <a class="btn btn-outline-secondary ms-3" href="categorias/listado-categoria.php">Listar</a>
+                </div>
+            </div>
+            <div class="col-md-4 text-center mb-3">
                 <h3 class="mb-3 text-white">Noticias</h3>
                 <div class="botonera d-flex justify-content-center">
                     <a class="btn btn-outline-secondary me-3" href="subcategorias/alta-subcategoria.php">Nuevo</a>
