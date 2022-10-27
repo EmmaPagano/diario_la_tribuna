@@ -54,8 +54,8 @@ require_once("../include/header.php")
             <div class="col-md-4 text-center mb-3">
                 <h3 class="mb-3 text-white">Noticias</h3>
                 <div class="botonera d-flex justify-content-center">
-                    <a class="btn btn-outline-secondary me-3" href="subcategorias/alta-subcategoria.php">Nuevo</a>
-                    <a class="btn btn-outline-secondary ms-3" href="subcategorias/listar-subcategoria.php">Listar</a>
+                    <a class="btn btn-outline-secondary me-3" href="noticias/alta.php">Nuevo</a>
+                    <a class="btn btn-outline-secondary ms-3" href="noticias/listar.php">Listar</a>
                 </div>
         </div>
     </div>
