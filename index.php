@@ -12,6 +12,13 @@ $cmd = $conexion->prepare('SELECT * FROM anuncios WHERE id_posicion_anuncio IN (
 $cmd->execute();
 $anunciosBanners = $cmd->fetchAll();
 
+$cmd = $conexion->prepare('SELECT * FROM noticias INNER JOIN categorias ON categorias.id_categoria = noticias.idCategoria WHERE baja_noticia = 0 ORDER BY fechaPublicacion DESC LIMIT 9');
+$cmd->execute();
+$noticiasSecundarias = $cmd->fetchAll();
+
+$cmd = $conexion->prepare('SELECT * FROM noticias INNER JOIN categorias ON categorias.id_categoria = noticias.idCategoria WHERE noticiaDestacada = 1 AND baja_noticia = 0  ORDER BY fechaPublicacion DESC LIMIT 1');
+$cmd->execute();
+$destacada = $cmd->fetch();
 
 
 ?>
@@ -56,30 +63,39 @@ require_once("include/header.php");
 
     <div class="row">
       <div class="col-md-8 contenedor-noticias p-3">
+        <!-- NOTICIA DESTACADA -->
+        
+        <?php
+        echo '
         <article class="noticia noticia-principal">
-          <h1>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, eum.
-          </h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, nobis adipisci autem iusto hic fugiat nihil perferendis voluptate pariatur possimus.</p>
-          <img src="img/corredor.jpg" alt="" class="img-fluid">
+        <h1><a href="paginas/noticia.php?id='.$destacada['idNoticia'].'">'.$destacada['tituloNoticia'].'</a></h1>
+        <p>'.$destacada['introduccionNoticia'].'</p>
+        <a href="paginas/noticia.php?id='.$destacada['idNoticia'].'"><img src="img/noticias/'.$destacada['imgPrincipal'].'" alt="" class="img-fluid"></a>
+        
         </article>
+
+        ';
+        
+        ?>
         <hr>
+
+         <!-- NOTICIAS SECUNDARIAS -->
         <div class="row">
-          <div class="col-md-4">
-            <img class="img-fluid" src="img/publi1.jpg" alt="">
-            <h3>Lorem ipsum dolor sit, amet consectetur adipisi</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eum unde sequi blanditiis sapiente rem, eveniet eos reprehenderit in quia.</p>
-          </div>
-          <div class="col-md-4">
-            <img class="img-fluid" src="img/publi1.jpg" alt="">
-            <h3>Lorem ipsum dolor sit, amet consectetur adipisi</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eum unde sequi blanditiis sapiente rem, eveniet eos reprehenderit in quia.</p>
-          </div>
-          <div class="col-md-4">
-            <img class="img-fluid" src="img/publi1.jpg" alt="">
-            <h3>Lorem ipsum dolor sit, amet consectetur adipisi</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eum unde sequi blanditiis sapiente rem, eveniet eos reprehenderit in quia.</p>
-          </div>
+          <?php 
+            for ($i=0; $i < 3; $i++) { 
+              echo '
+                <div class="col-md-4">
+                <a href="paginas/noticia.php?id='.$noticiasSecundarias[$i]['idNoticia'].'">
+                  <img class="img-fluid" src="img/noticias/'.$noticiasSecundarias[$i]['imgPrincipal'].'" alt="">
+                  <h3>'.$noticiasSecundarias[$i]['tituloNoticia'].'</h3>
+                  <p>'.$noticiasSecundarias[$i]['introduccionNoticia'].'</p>
+                  </a>
+                </div>
+              ';
+            }
+          
+          ?>
+
         </div>
         <!-- Anuncio - banner-->
         <div class="anuncio-horizontal my-4">
@@ -94,22 +110,22 @@ require_once("include/header.php");
 
         </div>
         <!-- Fin Anuncio - banner-->
+         <!-- NOTICIAS SECUNDARIAS -->
         <div class="row">
-          <div class="col-md-4">
-            <img class="img-fluid" src="img/publi1.jpg" alt="">
-            <h3>Lorem ipsum dolor sit, amet consectetur adipisi</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eum unde sequi blanditiis sapiente rem, eveniet eos reprehenderit in quia.</p>
-          </div>
-          <div class="col-md-4">
-            <img class="img-fluid" src="img/publi1.jpg" alt="">
-            <h3>Lorem ipsum dolor sit, amet consectetur adipisi</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eum unde sequi blanditiis sapiente rem, eveniet eos reprehenderit in quia.</p>
-          </div>
-          <div class="col-md-4">
-            <img class="img-fluid" src="img/publi1.jpg" alt="">
-            <h3>Lorem ipsum dolor sit, amet consectetur adipisi</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eum unde sequi blanditiis sapiente rem, eveniet eos reprehenderit in quia.</p>
-          </div>
+          <?php 
+              for ($i=3; $i < 6; $i++) { 
+                echo '
+                <div class="col-md-4">
+                <a href="paginas/noticia.php?id='.$noticiasSecundarias[$i]['idNoticia'].'">
+                  <img class="img-fluid" src="img/noticias/'.$noticiasSecundarias[$i]['imgPrincipal'].'" alt="">
+                  <h3>'.$noticiasSecundarias[$i]['tituloNoticia'].'</h3>
+                  <p>'.$noticiasSecundarias[$i]['introduccionNoticia'].'</p>
+                  </a>
+                </div>
+              ';
+              }
+            
+            ?>
         </div>
         <!-- Anuncio - banner-->
         <div class="anuncio-horizontal my-4">
@@ -124,22 +140,23 @@ require_once("include/header.php");
 
         </div>
         <!-- Fin Anuncio - banner-->
+         <!-- NOTICIAS SECUNDARIAS -->
         <div class="row">
-          <div class="col-md-4">
-            <img class="img-fluid" src="img/publi1.jpg" alt="">
-            <h3>Lorem ipsum dolor sit, amet consectetur adipisi</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eum unde sequi blanditiis sapiente rem, eveniet eos reprehenderit in quia.</p>
-          </div>
-          <div class="col-md-4">
-            <img class="img-fluid" src="img/publi1.jpg" alt="">
-            <h3>Lorem ipsum dolor sit, amet consectetur adipisi</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eum unde sequi blanditiis sapiente rem, eveniet eos reprehenderit in quia.</p>
-          </div>
-          <div class="col-md-4">
-            <img class="img-fluid" src="img/publi1.jpg" alt="">
-            <h3>Lorem ipsum dolor sit, amet consectetur adipisi</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eum unde sequi blanditiis sapiente rem, eveniet eos reprehenderit in quia.</p>
-          </div>
+        <?php 
+            for ($i=6; $i < 9; $i++) { 
+              echo '
+                <div class="col-md-4">
+                <a href="paginas/noticia.php?id='.$noticiasSecundarias[$i]['idNoticia'].'">
+                  <img class="img-fluid" src="img/noticias/'.$noticiasSecundarias[$i]['imgPrincipal'].'" alt="">
+                  <h3>'.$noticiasSecundarias[$i]['tituloNoticia'].'</h3>
+                  <p>'.$noticiasSecundarias[$i]['introduccionNoticia'].'</p>
+                  </a>
+                </div>
+              ';
+            }
+          
+          ?>
+
         </div>
       </div>
 <!-- Anuncios - laterales-->

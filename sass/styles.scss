@@ -87,6 +87,10 @@ header{
 
 /* contenedor noticia principal*/
 .contenido-principal {
+    a {
+        color: #000;
+        text-decoration: none;
+    }
     .row:first-child{
         box-shadow: 0 0 12px 0 #ccc;
     }

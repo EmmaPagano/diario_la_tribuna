@@ -26,7 +26,7 @@ $contenidoPrincipal = $_POST['editor'];
 $foto = $_FILES['foto']['name'];
 $fotoTmp = $_FILES['foto']['tmp_name'];
 
-if(empty($titulo) || empty($categoria) || empty($foto) || empty($introduccion) || empty($destacada) || empty($contenidoPrincipal) ){
+if(empty($titulo) || empty($categoria) || empty($foto) || empty($introduccion) || empty($contenidoPrincipal) ){
     $notificacion = "Por favor rellene todos los campos";
     $error = true;
 }else{
@@ -75,6 +75,11 @@ require_once("../../include/header.php")
         <h2 class="text-center mb-4">Nueva noticia</h2>
         <div class="row">
             <form class="col-md-6 mx-auto" action="alta.php" method="post" enctype="multipart/form-data">
+                <?php 
+                if(isset($notificacion)){
+                    echo $notificacion;
+                }
+                ?>
                 <div class="mb-3">
                     <label for="formUser">Título: </label>
                     <input type="text" class="form-control" id="formUser" name="titulo">

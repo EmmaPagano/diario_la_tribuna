@@ -9,6 +9,22 @@ $cmd = $conexion->prepare('SELECT * FROM anuncios WHERE id_posicion_anuncio IN (
 $cmd->execute();
 $anunciosLaterales = $cmd->fetchAll();
 
+if(isset($_GET['id'])){
+    $idNoticia = $_GET['id'];
+    $cmd = $conexion->prepare('SELECT * FROM noticias INNER JOIN categorias ON categorias.id_categoria = noticias.idCategoria WHERE idNoticia = :id AND baja_noticia = 0');
+    $cmd->execute(array(':id'=>$idNoticia));
+    $noticia = $cmd->fetch();
+    $titulo = trim($noticia['tituloNoticia']);
+    $categoria = $noticia['categoria'];
+    $introduccion = trim($noticia['introduccionNoticia']);
+    $destacada = (isset($noticia['noticiaDestacada'])) ? 1 : 0 ;
+    $contenidoPrincipal = $noticia['contenidoNoticia'];
+    $fotoActual = $noticia['imgPrincipal'];
+    $baja = $noticia['baja_noticia'];
+
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -47,10 +63,10 @@ require_once("../include/header.php");
                     </ul>
                 </div>
                 <div class="col-12 col-md-8">
-                    <h2 class="titulo-noticia">Título noticia</h2>
-                    <p class="introduccion-noticia">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque temporibus quam aperiam facere reiciendis molestias.</p>
-                    <img class="img-noticia img-fluid" src="../img/publi1.jpg" alt="">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis eos, aliquam magnam facilis maiores ratione ad fuga harum possimus quas consectetur pariatur. Impedit beatae, perferendis asperiores doloremque hic rem sunt!</p>
+                    <h2 class="titulo-noticia"><?php echo $titulo; ?></h2>
+                    <p class="introduccion-noticia"><?php echo $introduccion; ?></p>
+                    <img class="img-noticia img-fluid" src="../img/noticias/<?php echo $fotoActual; ?>" alt="">
+                    <p><?php echo $contenidoPrincipal; ?></p>
                 </div>
                 <div class="col-12 col-md-3 contenedor-anuncios">
                     <?php 
