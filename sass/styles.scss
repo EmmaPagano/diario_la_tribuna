@@ -17,6 +17,15 @@ $fondo-footer: #4c4c4c;
     box-sizing: border-box;
 }
 
+#btnCopiado{
+   visibility: hidden;
+    position: absolute;
+    left: -75px;
+    font-size: 10px;
+    transition: all .5s ease;
+    border-radius: 5px;
+}
+
 header{
     background-color: $fondo-gris-secundario;
     .navbar{

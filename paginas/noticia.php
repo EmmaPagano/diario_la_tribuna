@@ -16,6 +16,7 @@ if(isset($_GET['id'])){
     $noticia = $cmd->fetch();
     $titulo = trim($noticia['tituloNoticia']);
     $categoria = $noticia['categoria'];
+    $idCategoria = $noticia['idCategoria'];
     $introduccion = trim($noticia['introduccionNoticia']);
     $destacada = (isset($noticia['noticiaDestacada'])) ? 1 : 0 ;
     $contenidoPrincipal = $noticia['contenidoNoticia'];
@@ -39,11 +40,16 @@ if(isset($_GET['id'])){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <!-- Css personalizado -->
     <link rel="stylesheet" href="../css/styles.css">
+
+
     
 
     <title>Diario La Tribuna - Noticias</title>
 </head>
 <body>
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v15.0" nonce="b0wCyG1W"></script>
 
 <?php
 require_once("../include/header.php");
@@ -57,8 +63,10 @@ require_once("../include/header.php");
             <div class="row py-4">
                 <div class="col-12 col-md-1">
                     <ul class="listado-redes">
-                        <li><a title="Copiar enlace de la noticia" href=""><i class="fa-regular fa-copy"></i></a></li>
-                        <li><a title="Enviar la noticia por Whastapp" href=""><i class="fa-brands fa-whatsapp"></i></a></li>
+                        <li style="position:relative;"><a title="Copiar enlace de la noticia" href="" id="btnCopiar"><i class="fa-regular fa-copy"></i></a>
+                        <div class="bg-primary text-white p-2" id="btnCopiado">Copiado!</div>
+                    </li>
+                        <li><a title="Enviar la noticia por Whastapp" target="_blank" href="https://api.whatsapp.com/send?text=http://localhost<?php echo htmlentities($_SERVER['PHP_SELF']); ?>?id=<?php echo $idNoticia; ?>"><i class="fa-brands fa-whatsapp"></i></a></li>
                         <li><a title="Compartir la noticia en Facebook" href=""><i class="fa-brands fa-facebook"></i></a></li>
                     </ul>
                 </div>
@@ -82,6 +90,8 @@ require_once("../include/header.php");
                 </div>
             </div>
 
+            <div class="fb-share-button" data-href="http://localhost/La_Tribuna/paginas/noticia.php?id=15" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%2FLa_Tribuna%2Fpaginas%2Fnoticia.php%3Fid%3D15&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
+
         </div>
     </section>
 
@@ -95,7 +105,7 @@ require_once("../include/footer.php");
 <!-- Bootstrap JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script> 
 
-
+<script src="../js/noticia.js"></script>
 </body>
 </html>
 

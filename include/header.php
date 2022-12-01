@@ -14,19 +14,19 @@
       <ul class="navbar-nav">
         <?php if(!isset($menuAdm)): ?>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+          <a class="nav-link active" aria-current="page" href="<?php echo RUTARAIZ; ?>">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Política</a>
+          <a class="nav-link" href="<?php echo RUTARAIZ; ?>paginas/secciones.php?id=1">Política</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Economía</a>
+          <a class="nav-link" href="<?php echo RUTARAIZ; ?>paginas/secciones.php?id=8">Economía</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Policiales</a>
+          <a class="nav-link" href="<?php echo RUTARAIZ; ?>paginas/secciones.php?id=3">Policiales</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Deportes</a>
+          <a class="nav-link" href="<?php echo RUTARAIZ; ?>paginas/secciones.php?id=4">Deportes</a>
         </li>
         <li class="nav-item">
           <a class="nav-link btn-contacto" href="#">Contacto</a>
@@ -39,7 +39,6 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="<?php echo RUTARAIZ; ?>adm/panel-adm.php">Panel</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="<?php echo RUTARAIZ; ?>paginas/cerrar-sesion.php">Cerrar sesión</a></li>
           </ul>
