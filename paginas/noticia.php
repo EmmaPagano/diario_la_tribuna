@@ -49,7 +49,7 @@ if(isset($_GET['id'])){
 <body>
 
 <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v15.0" nonce="b0wCyG1W"></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v15.0" nonce="5hJdCbtn"></script>
 
 <?php
 require_once("../include/header.php");
@@ -66,8 +66,8 @@ require_once("../include/header.php");
                         <li style="position:relative;"><a title="Copiar enlace de la noticia" href="" id="btnCopiar"><i class="fa-regular fa-copy"></i></a>
                         <div class="bg-primary text-white p-2" id="btnCopiado">Copiado!</div>
                     </li>
-                        <li><a title="Enviar la noticia por Whastapp" target="_blank" href="https://api.whatsapp.com/send?text=http://localhost<?php echo htmlentities($_SERVER['PHP_SELF']); ?>?id=<?php echo $idNoticia; ?>"><i class="fa-brands fa-whatsapp"></i></a></li>
-                        <li><a title="Compartir la noticia en Facebook" href=""><i class="fa-brands fa-facebook"></i></a></li>
+                        <li><a title="Enviar la noticia por Whastapp" target="_blank" href="https://api.whatsapp.com/send?text=http://diariolatribuna.com.ar<?php echo htmlentities($_SERVER['PHP_SELF']); ?>?id=<?php echo $idNoticia; ?>"><i class="fa-brands fa-whatsapp"></i></a></li>
+                        <li><a title="Compartir la noticia en Facebook" href="https://www.facebook.com/sharer/sharer.php?kid_directed_site=0&sdk=joey&u=http%3A%2F%2Fdiariolatribuna.com.ar%2Fla_tribuna%2Fpaginas%2Fnoticia.php%3Fid%3D<?php echo $idNoticia; ?>&display=popup&ref=plugin&src=share_button"><i class="fa-brands fa-facebook"></i></a></li>
                     </ul>
                 </div>
                 <div class="col-12 col-md-8">
@@ -90,7 +90,7 @@ require_once("../include/header.php");
                 </div>
             </div>
 
-            <div class="fb-share-button" data-href="http://localhost/La_Tribuna/paginas/noticia.php?id=15" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%2FLa_Tribuna%2Fpaginas%2Fnoticia.php%3Fid%3D15&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
+            <div class="fb-share-button" data-href="https://diariolatribuna.com.ar/noticia.php?id=<?php echo $idNoticia; ?>" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdiariolatribuna.com.ar%2Fnoticia.php%3Fid%3D<?php echo $idNoticia; ?>&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
 
         </div>
     </section>

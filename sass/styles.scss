@@ -164,3 +164,52 @@ footer{
         }
     }
 }
+
+/* media queries */
+@media screen AND (max-width:767px) {
+
+    header{
+        .nav-link{
+            text-align: center;
+            
+        }
+        .btn-contacto{
+            margin-left: 0 !important;
+        }
+    }
+
+    .contenedor-apis{
+        .container{
+            flex-wrap: wrap;
+            justify-content: center;
+            font-size: 12px;
+            .api-dolar{
+                width: 100%;
+            }
+        }
+    }
+
+    .noticia-principal{
+        display: flex;
+        flex-direction: column;
+        a{
+            order: -1;
+        }
+    }
+
+    //pagina noticias
+
+    .listado-redes{
+        display: flex;
+        margin: 0;
+        padding: 0;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #ccc;
+        a{
+            font-size: 24px !important;
+        }
+    }
+
+}

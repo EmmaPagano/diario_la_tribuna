@@ -3,7 +3,7 @@
 <footer class="mt-4">
   <div class="container">
     <div class="row">
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-4 text-center">
         <h4>Contacto</h4>
         <ul>
           <li>
@@ -18,7 +18,7 @@
         <p>Copyright © 2020. Todos los derechos reservados</p>
         <p>Diseño y Desarrollo por <a href="http://www.emmapagano.com.ar/"> Emmanuel Pagano</a></p>
       </div>
-      <div class="col-12 col-md-4 redes">
+      <div class="col-12 col-md-4 redes text-center">
         <h4>Redes sociales</h4>
         <ul>
           <li>
