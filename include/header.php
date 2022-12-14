@@ -29,7 +29,7 @@
           <a class="nav-link" href="<?php echo RUTARAIZ; ?>paginas/secciones.php?id=4">Deportes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link btn-contacto" href="#">Contacto</a>
+          <a class="nav-link btn-contacto" href="<?php echo RUTARAIZ; ?>paginas/contacto.php">Contacto</a>
         </li>
         <?php endif; ?>
         <?php if(isset($_SESSION['idUser'])): ?>

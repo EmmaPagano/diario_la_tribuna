@@ -41,6 +41,13 @@ if(isset($_GET['id'])){
     <!-- Css personalizado -->
     <link rel="stylesheet" href="../css/styles.css">
 
+    <!--META DATA FB -->
+    <meta property="og:url"           content="http://www.diariolatribuna.com.ar/la_tribuna/paginas/noticia.php?id=<?php echo $idNoticia; ?>" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Diario La Tribuna - <?php echo $titulo;?>" />
+    <meta property="og:description"   content="<?php echo $introduccion;?>n" />
+    <meta property="og:image"         content="http://www.diariolatribuna.com.ar/la_tribuna/img/<?php echo $fotoActual; ?>" />
+
 
     
 
@@ -61,22 +68,22 @@ require_once("../include/header.php");
         <div class="container">
             
             <div class="row py-4">
-                <div class="col-12 col-md-1">
+                <div class="col-12 col-lg-1">
                     <ul class="listado-redes">
                         <li style="position:relative;"><a title="Copiar enlace de la noticia" href="" id="btnCopiar"><i class="fa-regular fa-copy"></i></a>
                         <div class="bg-primary text-white p-2" id="btnCopiado">Copiado!</div>
                     </li>
                         <li><a title="Enviar la noticia por Whastapp" target="_blank" href="https://api.whatsapp.com/send?text=http://diariolatribuna.com.ar<?php echo htmlentities($_SERVER['PHP_SELF']); ?>?id=<?php echo $idNoticia; ?>"><i class="fa-brands fa-whatsapp"></i></a></li>
-                        <li><a title="Compartir la noticia en Facebook" href="https://www.facebook.com/sharer/sharer.php?kid_directed_site=0&sdk=joey&u=http%3A%2F%2Fdiariolatribuna.com.ar%2Fla_tribuna%2Fpaginas%2Fnoticia.php%3Fid%3D<?php echo $idNoticia; ?>&display=popup&ref=plugin&src=share_button"><i class="fa-brands fa-facebook"></i></a></li>
+                        <li><a data-href="http://diariolatribuna.com.ar/la_tribuna/paginas/noticia.php?id=<?php echo $idNoticia; ?>" data-layout="button_count" data-size="large" target="_blank" title="Compartir la noticia en Facebook" href="https://www.facebook.com/sharer/sharer.php?kid_directed_site=0&sdk=joey&u=http%3A%2F%2Fdiariolatribuna.com.ar%2Fla_tribuna%2Fpaginas%2Fnoticia.php%3Fid%3D<?php echo $idNoticia; ?>&display=popup&ref=plugin&src=share_button"><i class="fa-brands fa-facebook"></i></a></li>
                     </ul>
                 </div>
-                <div class="col-12 col-md-8">
+                <div class="col-12 col-lg-8">
                     <h2 class="titulo-noticia"><?php echo $titulo; ?></h2>
                     <p class="introduccion-noticia"><?php echo $introduccion; ?></p>
                     <img class="img-noticia img-fluid" src="../img/noticias/<?php echo $fotoActual; ?>" alt="">
                     <p><?php echo $contenidoPrincipal; ?></p>
                 </div>
-                <div class="col-12 col-md-3 contenedor-anuncios">
+                <div class="col-12 col-lg-3 contenedor-anuncios">
                     <?php 
                         foreach ($anunciosLaterales as $fila) {
                         echo '
@@ -90,7 +97,6 @@ require_once("../include/header.php");
                 </div>
             </div>
 
-            <div class="fb-share-button" data-href="https://diariolatribuna.com.ar/noticia.php?id=<?php echo $idNoticia; ?>" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdiariolatribuna.com.ar%2Fnoticia.php%3Fid%3D<?php echo $idNoticia; ?>&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
 
         </div>
     </section>

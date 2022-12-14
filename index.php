@@ -84,7 +84,7 @@ require_once("include/header.php");
           <?php 
             for ($i=0; $i < 3; $i++) { 
               echo '
-                <div class="col-md-4">
+                <div class="col-md-6 col-lg-4">
                 <a href="paginas/noticia.php?id='.$noticiasSecundarias[$i]['idNoticia'].'">
                   <img class="img-fluid" src="img/noticias/'.$noticiasSecundarias[$i]['imgPrincipal'].'" alt="">
                   <h3>'.$noticiasSecundarias[$i]['tituloNoticia'].'</h3>
@@ -115,7 +115,7 @@ require_once("include/header.php");
           <?php 
               for ($i=3; $i < 6; $i++) { 
                 echo '
-                <div class="col-md-4">
+                <div class="col-md-6 col-lg-4">
                 <a href="paginas/noticia.php?id='.$noticiasSecundarias[$i]['idNoticia'].'">
                   <img class="img-fluid" src="img/noticias/'.$noticiasSecundarias[$i]['imgPrincipal'].'" alt="">
                   <h3>'.$noticiasSecundarias[$i]['tituloNoticia'].'</h3>
@@ -145,7 +145,7 @@ require_once("include/header.php");
         <?php 
             for ($i=6; $i < 9; $i++) { 
               echo '
-                <div class="col-md-4">
+                <div class="col-md-6 col-lg-4">
                 <a href="paginas/noticia.php?id='.$noticiasSecundarias[$i]['idNoticia'].'">
                   <img class="img-fluid" src="img/noticias/'.$noticiasSecundarias[$i]['imgPrincipal'].'" alt="">
                   <h3>'.$noticiasSecundarias[$i]['tituloNoticia'].'</h3>

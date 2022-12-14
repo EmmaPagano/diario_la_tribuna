@@ -165,6 +165,10 @@ footer{
     }
 }
 
+.contenedor-form{
+box-shadow: 0 0 12px 0 #ccc;
+}
+
 /* media queries */
 @media screen AND (max-width:767px) {
 
@@ -211,5 +215,30 @@ footer{
             font-size: 24px !important;
         }
     }
+    .copyright{
+        text-align: center;
+    }
+}
 
+@media screen and (min-width:768px) and (max-width:1023px) {
+    .seccion-noticia{
+        text-align: center;
+        .listado-redes{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .contenedor-anuncios{
+            position: static;
+            height: auto;
+            flex-direction: row;
+            .anuncio{
+                padding: 0 1rem;
+            }
+        }
+    }
+    .copyright{
+        text-align: center;
+    }
 }
